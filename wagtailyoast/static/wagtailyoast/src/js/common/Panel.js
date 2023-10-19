@@ -21,8 +21,7 @@ export default class Panel extends WithContext {
    */
   static async getPreviewPageContent() {
     const $form = $('#page-edit-form');
-    const $previewBtn = $('button[class^="button action-preview"');
-    const previewUrl = $previewBtn.data('action');
+    const previewUrl = `${document.location.pathname}preview/`;
 
     // Submit wagtail edit form with no processing data
     await $.ajax({

@@ -1,5 +1,5 @@
 from django import forms
-from wagtail.admin.panels import ObjectList
+from wagtail.admin.panels import ObjectList, PanelGroup
 from wagtail.admin.panels import FieldPanel, MultiFieldPanel
 
 
@@ -40,3 +40,7 @@ class YoastPanel(ObjectList):
         kwargs['search_description'] = self.search_description
         kwargs['slug'] = self.slug
         return kwargs
+
+    class BoundPanel(PanelGroup.BoundPanel):
+        template_name = "wagtailyoast/edit_handlers/yoast_panel.html"
+
