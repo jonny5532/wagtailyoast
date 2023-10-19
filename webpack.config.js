@@ -35,6 +35,12 @@ module.exports = ({ mode = 'development' } = {}) => {
       path: path.resolve(__dirname, 'wagtailyoast'),
       publicPath: '/',
     },
+    resolve: {
+      alias: {
+        // Patch autop with our dummy version.
+        '@wordpress/autop$': path.resolve(__dirname, 'wagtailyoast/static/wagtailyoast/src/js/fake_autop.js'),
+      },
+    },
     module: {
       rules: [
         {
